@@ -1,0 +1,15 @@
+.bak
+.project
+private/
+setting/
+junk/
+.DS_Store
+conf/conf.json
+junk/
+local/
+cpanfile.snapshot
+vender/
+.buildpath
+.bundle/.bak
+.bundle/
+.project
