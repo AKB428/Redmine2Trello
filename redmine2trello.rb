@@ -13,10 +13,12 @@ if ARGV.length < 3
   exit
 end
 
+board_name = ARGV[0]
+list_name = ARGV[1]
 csv_file = ARGV[2]
 
 #csvを読んでカードモデルを生成
-Trello_Data_Converter::realtime.new(csv_file)
+card_models = Trello_Data_Converter::Redmine.new(csv_file).csv_to_card_models()
 
 #カードモデルを渡して登録
-WrapTrello::Core.new(conf)
+WrapTrello::Core.new(conf).regist_card_list(board_name, list_name, card_models)
