@@ -1,4 +1,5 @@
 require './lib/wrap_trello/core.rb'
+require './lib/trello_data_converter/redmine.rb'
 require 'json'
 
 conf = nil
@@ -12,6 +13,10 @@ if ARGV.length < 3
   exit
 end
 
-#csvを読んでカードモデルを生成
+csv_file = ARGV[2]
 
-WrapTrello::Core.new(conf);
+#csvを読んでカードモデルを生成
+Trello_Data_Converter::realtime.new(csv_file)
+
+#カードモデルを渡して登録
+WrapTrello::Core.new(conf)
